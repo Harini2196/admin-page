@@ -14,7 +14,7 @@ node ('master') {
 
                 stage('Build the code and Docker image') {
                         sh """  ls -l ${WORKSPACE}
-                                docker build -t webApp .
+                                docker build -t webApp:V1 .
                         """
                 }
         }catch(Exception e) {
