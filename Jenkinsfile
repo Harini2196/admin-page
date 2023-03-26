@@ -2,7 +2,7 @@ node ('master') {
         try { 
                 stage('SCM') {
                        checkout scmGit(
-                                branches: [[name: '*/feature']],
+                                branches: [[name: '*/jenkins-build']],
                                 extensions: [],
                                 userRemoteConfigs: [[credentialsId: 'github-creds',
                                  url: 'https://github.com/Harini2196/admin-page.git']])
