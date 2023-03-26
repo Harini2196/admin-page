@@ -2,7 +2,7 @@ node ('master') {
 
         try {
                  stage('Cleanup'){
-
+                  deleteDir()
                 }
                 stage('SCM') {
                        checkout scmGit(
@@ -17,11 +17,11 @@ node ('master') {
                                 docker build -t ${DockerTag} .
                         """
                 }
-        }catch(err) {
+        }catch(Exception e) {
                 wrap([$class: 'AnsiColorBuildWrapper']) {
                         println "\u001B[41m[ERROR]: Build Failed"
+                        println(e.message)
                 }
                 currentBuild.result = "FAILED"
-                throw err
         }
 }
