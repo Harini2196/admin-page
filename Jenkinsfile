@@ -1,5 +1,9 @@
 node ('master') {
-        try { 
+
+        try {
+                 stage('Cleanup'){
+
+                }
                 stage('SCM') {
                        checkout scmGit(
                                 branches: [[name: '*/jenkins-build']],
@@ -9,10 +13,7 @@ node ('master') {
                 }
 
                 stage('Build the code and Docker image') {
-                        sh """
-                                sudo systemctl start docker
-                                sudo chmod 666 /var/run/docker.sock
-                                ls -l ${WORKSPACE}
+                        sh """  ls -l ${WORKSPACE}
                                 docker build -t ${DockerTag} .
                         """
                 }
