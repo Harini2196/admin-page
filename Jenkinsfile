@@ -1,4 +1,4 @@
-node ('learnua') {
+node ('master') {
 
         def ECR_REPOSITORY = "815700338514.dkr.ecr.us-west-2.amazonaws.com"
         def AWS_REGION = "us-west-2"
