@@ -11,7 +11,7 @@ node ('master') {
                                  url: 'https://github.com/Harini2196/admin-page.git']])
                 }
                 stage("Build"){
-                        sh """ cd /app
+                        sh """ mkdir /app; cd /app
                                PATH /app/node_modules/.bin:$PATH
                                . /app
                                npm install
