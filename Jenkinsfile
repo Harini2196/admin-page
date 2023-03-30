@@ -11,9 +11,7 @@ node ('master') {
                                  url: 'https://github.com/Harini2196/admin-page.git']])
                 }
                 stage("Build"){
-                        sh """ mkdir /app; cd /app
-                               PATH /app/node_modules/.bin:$PATH
-                               . /app
+                        sh """
                                npm install
                                ng build --aot=true
                         """
@@ -26,6 +24,9 @@ node ('master') {
                 //         sh """  ls -l ${WORKSPACE}
                 //                 docker build -t webapp:V1 .
                 //         """
+                // mkdir app; cd app
+                //                PATH app/node_modules/.bin:$PATH
+                //                cp . app
                 // }
         }catch(Exception e) {
                 wrap([$class: 'AnsiColorBuildWrapper']) {
